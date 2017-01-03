@@ -447,7 +447,9 @@ public class TelaP extends javax.swing.JFrame {
     }//GEN-LAST:event_button15MouseClicked
     
     public static void run(){
-        new TelaP().setVisible(true);
+        TelaP t = new TelaP();
+        t.setTitle("HardCalcs");
+        t.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
