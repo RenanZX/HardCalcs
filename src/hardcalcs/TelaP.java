@@ -1,5 +1,6 @@
 package hardcalcs;
 
+import java.awt.Color;
 import static java.lang.Float.parseFloat;
 
 /**
@@ -52,6 +53,7 @@ public class TelaP extends javax.swing.JFrame {
         button16 = new java.awt.Button();
         BarraDeSel = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -297,13 +299,21 @@ public class TelaP extends javax.swing.JFrame {
 
         jMenu1.setText("Opções");
 
-        jMenuItem4.setText("Derivada");
+        jMenuItem5.setText("Calcular Matrizes");
+        jMenuItem5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenuItem5MouseReleased(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem4.setText("Calcular Derivada");
         jMenu1.add(jMenuItem4);
 
-        jMenuItem3.setText("Integral");
+        jMenuItem3.setText("Calcular Integral");
         jMenu1.add(jMenuItem3);
 
-        jMenuItem1.setText("Newton-Rasphton");
+        jMenuItem1.setText("Calcular Newton-Rasphton");
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Sair");
@@ -339,19 +349,14 @@ public class TelaP extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VisorCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisorCalcActionPerformed
-       
-    }//GEN-LAST:event_VisorCalcActionPerformed
-
-    private void VisorCalcTextValueChanged(java.awt.event.TextEvent evt) {//GEN-FIRST:event_VisorCalcTextValueChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VisorCalcTextValueChanged
-
     private void SobMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_SobMenuSelected
         hardcalcs.Sob.run();
     }//GEN-LAST:event_SobMenuSelected
 
     private void CEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CEMouseClicked
+        if(op==0){
+            aux = 0;
+        }
         VisorCalc.setText("");
     }//GEN-LAST:event_CEMouseClicked
 
@@ -444,11 +449,26 @@ public class TelaP extends javax.swing.JFrame {
         }
         VisorCalc.setText(""+result);
         aux = 0;
+        op = 0;
     }//GEN-LAST:event_button15MouseClicked
+
+    private void jMenuItem5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem5MouseReleased
+        hardcalcs.Cmat.run();
+    }//GEN-LAST:event_jMenuItem5MouseReleased
+
+    private void VisorCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisorCalcActionPerformed
+
+    }//GEN-LAST:event_VisorCalcActionPerformed
+
+    private void VisorCalcTextValueChanged(java.awt.event.TextEvent evt) {//GEN-FIRST:event_VisorCalcTextValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VisorCalcTextValueChanged
     
     public static void run(){
         TelaP t = new TelaP();
         t.setTitle("HardCalcs");
+        t.VisorCalc.setEditable(false);
+        t.VisorCalc.setBackground(Color.WHITE);
         t.setVisible(true);
     }
 
@@ -478,6 +498,7 @@ public class TelaP extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -64,7 +64,7 @@ public class Sob extends javax.swing.JFrame {
         Sob s = new Sob();
         s.setTitle("Sobre...");
         s.Titulo.setText("\tHardCalcs");
-        s.Texto.setText("Como o proprio nome sugere,o HardCalcs e uma calculadora adaptada para a realizaçao de calculos complexos e dificeis de resolver de maneira comum,o intuito do programa visa fazer calculos complexos como integrais,derivadas e newton-rasphton \n\n\n Desenvolvida por RenanZX");
+        s.Texto.setText("Como o proprio nome sugere,o HardCalcs e uma calculadora adaptada para a realizaçao de calculos complexos e dificeis de resolver de maneira comum,o intuito do programa visa fazer calculos complexos como integrais,derivadas e newton-rasphton\n\n Github:https://github.com/RenanZX/HardCalcs \n Desenvolvida por RenanZX");
         s.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         s.toFront();
         s.setVisible(true);
