@@ -25,8 +25,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="VisorCalc" min="-2" pref="231" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="223" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -69,6 +69,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="button11" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
                                   <Component id="button16" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Component id="button18" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -84,17 +85,11 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="button2" min="-2" max="-2" attributes="0"/>
-                          <Component id="button1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="button13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="button15" min="-2" max="-2" attributes="0"/>
@@ -102,6 +97,12 @@
                               <Component id="button14" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="button2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="button3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="button4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -131,15 +132,18 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="button17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="VisorCalc" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="button18" min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Component id="button17" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -152,6 +156,9 @@
         </Property>
         <Property name="label" type="java.lang.String" value="2x2"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button1MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button2">
       <Properties>
@@ -160,68 +167,99 @@
         </Property>
         <Property name="label" type="java.lang.String" value="3x3"/>
       </Properties>
-    </Component>
-    <Component class="java.awt.TextField" name="VisorCalc">
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button2MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button3">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num1"/>
         <Property name="label" type="java.lang.String" value="1"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button3MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button4">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num2"/>
         <Property name="label" type="java.lang.String" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button4MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button5">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num3"/>
         <Property name="label" type="java.lang.String" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button5MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button6">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num4"/>
         <Property name="label" type="java.lang.String" value="4"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button6MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button7">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num5"/>
         <Property name="label" type="java.lang.String" value="5"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button7MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button8">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num6"/>
         <Property name="label" type="java.lang.String" value="6"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button8MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button9">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num7"/>
         <Property name="label" type="java.lang.String" value="7"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button9MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button10">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num8"/>
         <Property name="label" type="java.lang.String" value="8"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button10MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button11">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num9"/>
         <Property name="label" type="java.lang.String" value="9"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button11MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button12">
       <Properties>
         <Property name="actionCommand" type="java.lang.String" value="num0"/>
         <Property name="label" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button12MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button16">
       <Properties>
@@ -236,6 +274,9 @@
         </Property>
         <Property name="label" type="java.lang.String" value="+"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button13MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button14">
       <Properties>
@@ -244,6 +285,9 @@
         </Property>
         <Property name="label" type="java.lang.String" value="&#xd7;"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button14MouseReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="button15">
       <Properties>
@@ -257,6 +301,33 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="Escalonar"/>
       </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="VisorCalc">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="java.awt.Button" name="button18">
+      <Properties>
+        <Property name="actionCommand" type="java.lang.String" value="="/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Yu Gothic UI Light" size="24" style="0"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="="/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button18MouseReleased"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
