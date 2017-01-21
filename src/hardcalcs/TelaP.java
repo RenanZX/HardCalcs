@@ -54,12 +54,12 @@ public class TelaP extends javax.swing.JFrame { /*classe a qual representa a tel
         cos = new java.awt.Button();
         euler = new java.awt.Button();
         BarraDeSel = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        Options = new javax.swing.JMenu();
+        CalcMat = new javax.swing.JMenuItem();
+        CalcDerv = new javax.swing.JMenuItem();
+        CalcInt = new javax.swing.JMenuItem();
+        CalcNR = new javax.swing.JMenuItem();
+        Sair = new javax.swing.JMenuItem();
         Sob = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -317,9 +317,9 @@ public class TelaP extends javax.swing.JFrame { /*classe a qual representa a tel
                                     .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(button16, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(button1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                    .addComponent(CE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(button2, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
@@ -415,29 +415,34 @@ public class TelaP extends javax.swing.JFrame { /*classe a qual representa a tel
         BarraDeSel.setDoubleBuffered(true);
         BarraDeSel.setNextFocusableComponent(BarraDeSel);
 
-        jMenu1.setText("Opções");
+        Options.setText("Opções");
 
-        jMenuItem5.setText("Calcular Matrizes");
-        jMenuItem5.addMouseListener(new java.awt.event.MouseAdapter() {
+        CalcMat.setText("Calcular Matrizes");
+        CalcMat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jMenuItem5MouseReleased(evt);
+                CalcMatMouseReleased(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        Options.add(CalcMat);
 
-        jMenuItem4.setText("Calcular Derivada");
-        jMenu1.add(jMenuItem4);
+        CalcDerv.setText("Calcular Derivada");
+        Options.add(CalcDerv);
 
-        jMenuItem3.setText("Calcular Integral");
-        jMenu1.add(jMenuItem3);
+        CalcInt.setText("Calcular Integral");
+        Options.add(CalcInt);
 
-        jMenuItem1.setText("Calcular Newton-Rasphton");
-        jMenu1.add(jMenuItem1);
+        CalcNR.setText("Calcular Newton-Rasphton");
+        Options.add(CalcNR);
 
-        jMenuItem2.setText("Sair");
-        jMenu1.add(jMenuItem2);
+        Sair.setText("Sair");
+        Sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                SairMouseReleased(evt);
+            }
+        });
+        Options.add(Sair);
 
-        BarraDeSel.add(jMenu1);
+        BarraDeSel.add(Options);
 
         Sob.setText("Sobre");
         Sob.addMenuListener(new javax.swing.event.MenuListener() {
@@ -573,9 +578,9 @@ public class TelaP extends javax.swing.JFrame { /*classe a qual representa a tel
         op = 0;
     }//GEN-LAST:event_button15MouseClicked
 
-    private void jMenuItem5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem5MouseReleased
+    private void CalcMatMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalcMatMouseReleased
         hardcalcs.Cmat.run();
-    }//GEN-LAST:event_jMenuItem5MouseReleased
+    }//GEN-LAST:event_CalcMatMouseReleased
 
     private void VisorCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisorCalcActionPerformed
 
@@ -662,6 +667,11 @@ public class TelaP extends javax.swing.JFrame { /*classe a qual representa a tel
         aux = parseFloat(VisorCalc.getText());
         VisorCalc.setText("log10("+aux+") = "+Math.log10(aux));
     }//GEN-LAST:event_logMouseReleased
+
+    private void SairMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseReleased
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_SairMouseReleased
     /*funcao que construira o objeto da tela ao qual apresentara as suas funcionalidades ao usuario*/
     public static void run(){
         TelaP t = new TelaP();
@@ -676,8 +686,14 @@ public class TelaP extends javax.swing.JFrame { /*classe a qual representa a tel
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraDeSel;
     private java.awt.Button CE;
+    private javax.swing.JMenuItem CalcDerv;
+    private javax.swing.JMenuItem CalcInt;
+    private javax.swing.JMenuItem CalcMat;
+    private javax.swing.JMenuItem CalcNR;
+    private javax.swing.JMenu Options;
     private java.awt.Button Pot;
     private java.awt.Button PotQ;
+    private javax.swing.JMenuItem Sair;
     private javax.swing.JMenu Sob;
     private java.awt.TextField VisorCalc;
     private java.awt.Button button1;
@@ -699,12 +715,6 @@ public class TelaP extends javax.swing.JFrame { /*classe a qual representa a tel
     private java.awt.Button cos;
     private java.awt.Button euler;
     private java.awt.Button fi;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private java.awt.Button log;
     private java.awt.Button pi;
