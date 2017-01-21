@@ -3,8 +3,6 @@ package hardcalcs;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import static java.lang.Float.parseFloat;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JFrame;
 
 /*classe ao qual sera responsavel por prover a funçao de calcular matrizes*/
@@ -22,6 +20,7 @@ public class Cmat extends javax.swing.JFrame {
     public static final int SUB = 2;
     public static final int DIV = 3;
     public static final int MULT = 4;
+    public static final int ESC = 5;
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -178,6 +177,11 @@ public class Cmat extends javax.swing.JFrame {
         button15.setLabel("-");
 
         button17.setLabel("Escalonar");
+        button17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                button17MouseReleased(evt);
+            }
+        });
 
         VisorCalc.setColumns(20);
         VisorCalc.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
@@ -351,6 +355,78 @@ public class Cmat extends javax.swing.JFrame {
     ListaM matrAux = new ListaM();
     /*botao ao qual definira o tamanho da matriz a ser calculada*/
     
+    private void buttonEventEquals(){
+        ListaM Result = new ListaM();
+        switch(oper){   /*identifica a operacao*/
+            case SOMA:
+                Result = matrAux.somar(matr);
+                break;
+            case SUB:
+                Result = matrAux.subtrair(matr);
+                break;
+            case MULT:
+                Result = matrAux.multiplicar(matr,limtam); /*faz a operacao escolhida pelo usuario e mostra o resultado*/
+                break;
+            case ESC:
+                break;
+        }
+        VisorCalc.setText(Result.getMatrix()+"\n");
+        matr = new ListaM();
+        matrAux = new ListaM();
+        OPS = false;
+        counter = 0;
+        auxcount = 0;
+        limtam = 0;
+        limtam2X = 0;
+    }
+    
+    private void buttonEventOper(int operator){
+        if(OPS==true){
+            VisorCalc.setText("");
+            matrAux.copiarMat(matr,limtam); /*copia a matriz original*/
+            matr = null; /*seta-a como nulo*/
+            matr = new ListaM(); /*cria uma nova matriz*/
+            oper = operator; /*defini a operacao*/
+            counter = 0; /*zera os contadores*/
+            auxcount = 0;
+        }
+    }
+    /*insere os elementos da matriz*/
+    private void buttonEventOK(){
+        String content;
+        if((OPS==true)&&(counter < limtam2X)){
+            content = BarNum.getText();
+            RealeseTesteTam(parseFloat(content));
+            VisorCalc.setText(VisorCalc.getText()+content+" ");
+            BarNum.setText("");
+        }
+    }
+    /*apaga a matriz*/
+    private void buttonEventCE(){
+        VisorCalc.setText("");
+        matr = null;
+        matrAux = null;
+        matr = new ListaM();
+        matrAux = new ListaM();
+        OPS = false;
+        counter = 0;
+        auxcount = 0;
+        limtam = 0;
+        limtam2X = 0;
+    }
+    /*responsavel por setar no bloco de texto os valores apertados nos botoes pelo usuario*/
+    private void buttonEventNum(int n){
+        if((OPS==true)&&(counter < limtam2X)){
+            BarNum.setText(BarNum.getText()+n);
+        }
+    }
+    /*responsavel pelo botao de escalonamento*/
+    private void buttonEventEscal(){
+        this.setVisible(false);
+        this.dispose();
+        hardcalcs.Cmat_EscPanel.run();
+    }
+    /*botoes para setar o tamanho da matriz*/
     private void button1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseReleased
         OPS = true;
         limtam2X = TAM2X * TAM2X;
@@ -366,131 +442,65 @@ public class Cmat extends javax.swing.JFrame {
     }//GEN-LAST:event_button2MouseReleased
     
     private void RealeseTesteTam(float valor){
-        switch(limtam){
-            case TAM2X:
-                if(auxcount >= 2){
-                    VisorCalc.setText(VisorCalc.getText()+"\n"); /*pula uma linha caso chegue no limite de colunas pre estabelecido*/
-                    auxcount = 0;
-                }
-                matr.insereElemento(valor, TAM2X);
-                break;
-            case TAM3X:
-                if(auxcount >= 3){
-                    VisorCalc.setText(VisorCalc.getText()+"\n");
-                    auxcount = 0;
-                }
-                matr.insereElemento(valor, TAM3X);
-                break;
+        if(auxcount >= limtam){
+            VisorCalc.setText(VisorCalc.getText()+"\n"); /*pula uma linha caso chegue no limite de colunas pre estabelecido*/
+            auxcount = 0;
         }
+        matr.insereElemento(valor, limtam);
         counter++; /*incrementa os contadores*/
         auxcount++;
     }
 /*botoes numericos da calculadora que colocara na tela oque o usuario apertar*/    
     private void button3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"1");
-        }
+        buttonEventNum(1);
     }//GEN-LAST:event_button3MouseReleased
 
     private void button14MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button14MouseReleased
-        if(OPS==true){
-            VisorCalc.setText("");
-            matrAux.copiarMat(matr,limtam); /*copia a matriz original*/
-            matr = null; /*seta-a como nulo*/
-            matr = new ListaM(); /*cria uma nova matriz*/
-            oper = MULT; /*defini a operacao*/
-            counter = 0; /*zera os contadores*/
-            auxcount = 0;
-        }
+        buttonEventOper(MULT);
     }//GEN-LAST:event_button14MouseReleased
 
     private void button18MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button18MouseReleased
-        ListaM Result = new ListaM();
-        switch(oper){   /*identifica a operacao*/
-            case SOMA:
-                Result = matrAux.somar(matr);
-                break;
-            case SUB:
-                Result = matrAux.subtrair(matr);
-                break;
-            case MULT:
-                Result = matrAux.multiplicar(matr,limtam); /*faz a operacao escolhida pelo usuario e mostra o resultado*/
-                break;
-        }
-        VisorCalc.setText(Result.getMatrix()+"\n");
-        matr = new ListaM();
-        matrAux = new ListaM();
-        OPS = false;
-        counter = 0;
-        auxcount = 0;
-        limtam = 0;
-        limtam2X = 0;
+        buttonEventEquals();
     }//GEN-LAST:event_button18MouseReleased
 
     private void button4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button4MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"2");
-        }
+        buttonEventNum(2);
     }//GEN-LAST:event_button4MouseReleased
 
     private void button5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button5MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"3");
-        }
+        buttonEventNum(3);
     }//GEN-LAST:event_button5MouseReleased
 
     private void button6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button6MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"4");
-        }
+        buttonEventNum(4);
     }//GEN-LAST:event_button6MouseReleased
 
     private void button7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button7MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"5");
-        }
+        buttonEventNum(5);
     }//GEN-LAST:event_button7MouseReleased
 
     private void button8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button8MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"6");
-        }
+        buttonEventNum(6);
     }//GEN-LAST:event_button8MouseReleased
 
     private void button9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button9MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"7");
-        }
+        buttonEventNum(7);
     }//GEN-LAST:event_button9MouseReleased
 
     private void button10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button10MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"8");
-        }
+        buttonEventNum(8);
     }//GEN-LAST:event_button10MouseReleased
 
     private void button11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button11MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"9");
-        }
+        buttonEventNum(9);
     }//GEN-LAST:event_button11MouseReleased
 
     private void button12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button12MouseReleased
-        if((OPS==true)&&(counter < limtam2X)){
-            BarNum.setText(BarNum.getText()+"0");
-        }
+        buttonEventNum(0);
     }//GEN-LAST:event_button12MouseReleased
 
     private void button13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button13MouseReleased
-        if(OPS==true){
-            VisorCalc.setText("");
-            matrAux.copiarMat(matr,limtam);
-            matr = null;
-            matr = new ListaM();
-            oper = SOMA;
-            counter = 0;
-            auxcount = 0;
-        }
+        buttonEventOper(SOMA);
     }//GEN-LAST:event_button13MouseReleased
 
     private void button16MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button16MouseReleased
@@ -500,13 +510,7 @@ public class Cmat extends javax.swing.JFrame {
     }//GEN-LAST:event_button16MouseReleased
 
     private void OKButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OKButtonMouseReleased
-        String content;
-        if((OPS==true)&&(counter < limtam2X)){
-            content = BarNum.getText();
-            RealeseTesteTam(parseFloat(content));
-            VisorCalc.setText(VisorCalc.getText()+content+" ");
-            BarNum.setText("");
-        }
+        buttonEventOK();
     }//GEN-LAST:event_OKButtonMouseReleased
 
     private void limpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_limpMouseClicked
@@ -516,75 +520,27 @@ public class Cmat extends javax.swing.JFrame {
     private void BarNumKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BarNumKeyReleased
         switch(evt.getKeyCode()){
             case KeyEvent.VK_ENTER:
-                String content;
-                if((OPS==true)&&(counter < limtam2X)){
-                    content = BarNum.getText();
-                    RealeseTesteTam(parseFloat(content));
-                    VisorCalc.setText(VisorCalc.getText()+content+" ");
-                    BarNum.setText("");
-                }
+                buttonEventOK();
                 break;
             case KeyEvent.VK_X:
-                if(OPS==true){
-                    BarNum.setText("");
-                    VisorCalc.setText("");
-                    matrAux.copiarMat(matr,limtam);
-                    matr = null;
-                    matr = new ListaM();
-                    oper = MULT;
-                    counter = 0;
-                    auxcount = 0;
-                }
+                buttonEventOper(MULT);
                 break;
             case KeyEvent.VK_EQUALS:
-                ListaM Result = new ListaM();
-                switch(oper){   /*identifica a operacao*/
-                    case SOMA:
-                        Result = matrAux.somar(matr);
-                        break;
-                    case SUB:
-                        Result = matrAux.subtrair(matr);
-                        break;
-                    case MULT:
-                        Result = matrAux.multiplicar(matr,limtam); /*faz a operacao escolhida pelo usuario e mostra o resultado*/
-                        break;
-                }
-                VisorCalc.setText(Result.getMatrix()+"\n");
-                matr = new ListaM();
-                matrAux = new ListaM();
-                OPS = false;
-                counter = 0;
-                auxcount = 0;
-                limtam = 0;
-                limtam2X = 0;
+                buttonEventEquals();
                 break;
             case KeyEvent.VK_ESCAPE:
-                VisorCalc.setText("");
-                matr = null;
-                matrAux = null;
-                matr = new ListaM();
-                matrAux = new ListaM();
-                OPS = false;
-                counter = 0;
-                auxcount = 0;
-                limtam = 0;
-                limtam2X = 0;
+                buttonEventCE();
                 break;
         }
     }//GEN-LAST:event_BarNumKeyReleased
 
     private void CEMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CEMouseReleased
-        VisorCalc.setText("");
-        matr = null;
-        matrAux = null;
-        matr = new ListaM();
-        matrAux = new ListaM();
-        OPS = false;
-        counter = 0;
-        auxcount = 0;
-        limtam = 0;
-        limtam2X = 0;
+        buttonEventCE();
     }//GEN-LAST:event_CEMouseReleased
+
+    private void button17MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button17MouseReleased
+        buttonEventEscal();
+    }//GEN-LAST:event_button17MouseReleased
 
     /*constroi a nova tela da calculadora*/
     public static void run(){
