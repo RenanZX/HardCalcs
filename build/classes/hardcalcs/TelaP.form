@@ -120,21 +120,6 @@
                                   <Component id="button6" min="-2" pref="57" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="button10" min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="button7" min="-2" pref="57" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="button8" min="-2" pref="57" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="button9" min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Component id="button16" min="-2" pref="57" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="button1" pref="58" max="32767" attributes="0"/>
                                       <Component id="CE" max="32767" attributes="0"/>
@@ -148,6 +133,26 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="button3" pref="57" max="32767" attributes="0"/>
                                       <Component id="fi" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="OpenP" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="CloseP" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="button10" min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="button7" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="button8" min="-2" pref="57" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="button9" min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Component id="button16" min="-2" pref="57" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -173,7 +178,15 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="mplus" max="32767" attributes="0"/>
+                      <Component id="Mminus" max="32767" attributes="0"/>
+                      <Component id="Mresult" alignment="1" pref="64" max="32767" attributes="0"/>
+                      <Component id="Mclear" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Mtimes" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -189,9 +202,10 @@
                       <Component id="fi" min="-2" max="-2" attributes="0"/>
                       <Component id="sen" min="-2" max="-2" attributes="0"/>
                       <Component id="euler" min="-2" max="-2" attributes="0"/>
+                      <Component id="mplus" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -209,6 +223,15 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+                                  <Component id="log" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="Pot" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="raiz" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="PotQ" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="button4" min="-2" max="-2" attributes="0"/>
                                       <Component id="button5" min="-2" max="-2" attributes="0"/>
@@ -230,26 +253,34 @@
                                           <Component id="button16" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="log" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Pot" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="raiz" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="PotQ" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="OpenP" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="CloseP" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="button11" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="button11" min="-2" max="-2" attributes="0"/>
+                              <Component id="Mminus" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="button12" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="button12" min="-2" max="-2" attributes="0"/>
+                              <Component id="Mresult" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="button13" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="button13" min="-2" max="-2" attributes="0"/>
+                              <Component id="Mclear" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="button14" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="button14" min="-2" max="-2" attributes="0"/>
+                              <Component id="Mtimes" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="button15" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -502,6 +533,42 @@
           <Events>
             <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="eulerMouseReleased"/>
           </Events>
+        </Component>
+        <Component class="java.awt.Button" name="OpenP">
+          <Properties>
+            <Property name="actionCommand" type="java.lang.String" value="("/>
+            <Property name="label" type="java.lang.String" value="("/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Button" name="CloseP">
+          <Properties>
+            <Property name="label" type="java.lang.String" value=")"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Button" name="mplus">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="M+"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Button" name="Mminus">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="M-"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Button" name="Mresult">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="MR"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Button" name="Mclear">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="MC"/>
+          </Properties>
+        </Component>
+        <Component class="java.awt.Button" name="Mtimes">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="M*"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
