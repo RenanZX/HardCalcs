@@ -424,7 +424,7 @@ public class Cmat extends javax.swing.JFrame {
     private void buttonEventEscal(){
         this.setVisible(false);
         this.dispose();
-        hardcalcs.Cmat_EscPanel.run();
+        hardcalcs.Cmat_EscPanel2x2.run();
     }
     /*botoes para setar o tamanho da matriz*/
     private void button1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseReleased
